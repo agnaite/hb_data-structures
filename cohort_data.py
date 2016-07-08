@@ -127,6 +127,8 @@ def students_by_house(filename):
         else:
             instructors.append(last_name)
 
+    cohort_data.close()
+
     all_students = [sorted(hufflepuff),
                     sorted(gryffindor),
                     sorted(ravenclaw),
@@ -155,6 +157,15 @@ def all_students_tuple_list(filename):
     student_list = []
 
     # Code goes here
+    cohort_data = open(filename)
+
+    for line in cohort_data:
+        line = line.rstrip()
+        line = line.split('|')
+        if line[2] != "":
+            student_list.append(tuple(line))
+
+    cohort_data.close()
 
     return student_list
 
@@ -215,7 +226,8 @@ print "\nResult of sort_by_cohort:"
 print sort_by_cohort("cohort_data.txt")
 print "\nResult of students_by_house:"
 print students_by_house("cohort_data.txt")
-# all_students_data = all_students_tuple_list("cohort_data.txt")
+print "\nResult of all all_students_tuple_list:"
+print all_students_tuple_list("cohort_data.txt")
 # print all_students_data
 # find_cohort_by_student_name(all_students_data)
 # print find_name_duplicates("cohort_data.txt")
