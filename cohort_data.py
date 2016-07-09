@@ -178,7 +178,11 @@ def find_cohort_by_student_name(student_list):
     'Student not found.' when appropriate. """
 
     # Code goes here
-
+    name = raw_input("Who do you want to look up? >>> ")
+    name = name.split(' ')
+    for student in student_list:
+        if student[:2] == tuple(name):
+            return student[-1]
     return "Student not found."
 
 
@@ -226,9 +230,10 @@ print "\nResult of sort_by_cohort:"
 print sort_by_cohort("cohort_data.txt")
 print "\nResult of students_by_house:"
 print students_by_house("cohort_data.txt")
-print "\nResult of all all_students_tuple_list:"
-print all_students_tuple_list("cohort_data.txt")
-# print all_students_data
-# find_cohort_by_student_name(all_students_data)
+print "\nResult of all_students_tuple_list:"
+all_students_data = all_students_tuple_list("cohort_data.txt")
+print all_students_data
+print "\nResult of cohort_by_student_name:"
+print find_cohort_by_student_name(all_students_data)
 # print find_name_duplicates("cohort_data.txt")
 # find_house_members_by_student_name(all_students_data)
