@@ -181,7 +181,7 @@ def find_cohort_by_student_name(student_list):
     name = raw_input("Who do you want to look up? >>> ")
     name = name.split(' ')
     for student in student_list:
-        if student[:2] == tuple(name):
+        if (student[:2] == tuple(name):
             return student[-1]
     return "Student not found."
 
